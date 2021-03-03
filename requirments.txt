@@ -1,0 +1,10 @@
+pip install Flask
+pip install Flask-Bootstrap
+pip install Flask-WTF
+pip install WTForms
+pip install wtforms-validators
+pip install Flask-SQLAlchemy
+pip install SQLAlchemy
+pip install Werkzeug
+pip install Flask-Login
+pip install urllib3
