@@ -1,0 +1,60 @@
+body div{
+    padding-top: 60px;
+}
+
+body #box{
+    padding: 5% 0
+}
+
+body #box h1{
+    font-size: 60px;
+    text-align: center;
+    color: #38ef7d;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 2px;
+}
+
+body #box form{
+    display: flex;
+    margin-top: 10px;
+    padding: 0 25%;
+    justify-content: space-evenly;
+}
+
+body #box form input{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 18px;
+    width: -webkit-fill-available;
+    border-radius: 30px;    
+}
+
+body #box form button{
+    background: transparent;
+}
+
+body #box form .fa-search, body #box form .fa-microphone{
+    margin-left: 20px;
+    font-size: 40px;
+    color: white;
+}
+
+body #box form .fa-search:hover, body #box form .fa-microphone:hover{
+    color: #38ef7d;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: black;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: black;
+}

@@ -1,0 +1,99 @@
+body .container{
+    padding-top: 60px;
+}
+
+.form-group label{
+    color: white;
+    text-transform: capitalize;
+}
+
+.form-group input{
+    border-radius: 30px;
+}
+
+.checkbox label{
+    padding-left: 30px !important;
+    text-transform: capitalize;
+}
+
+.checkbox input{
+    margin: 0;
+    margin-left: -30px !important;
+    height: 20px;
+    width: 20px;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
+
+.form-signin-heading{
+    margin-bottom: 50px !important;
+    text-align: center;
+    color: #38ef7d;
+    font-size: 30px;
+    font-weight: 800;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.help-block{
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: #a94442;
+}
+
+.btn-primary{
+    background: none;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.btn-primary:focus{
+    margin: auto;
+    width: fit-content;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    
+}
+
+.btn-primary:hover{
+    background: none;
+    color: #38ef7d;
+}
+
+a:hover{
+    color: unset;
+    text-decoration: none !important;
+}
+
+#signup{
+    margin-left: 10px;
+    text-decoration: underline;
+}
