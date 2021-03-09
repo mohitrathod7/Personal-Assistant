@@ -2,7 +2,7 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}
-Login
+Sign Up
 {% endblock %}
 
 {% block styles %}
@@ -18,9 +18,8 @@ Login
 <link rel="stylesheet" href="{{url_for('static', filename='css/essentials.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/sidepanel.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='css/password.css')}}">
-<link rel="stylesheet" href="{{url_for('static', filename='css/checkbox.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/signup.css')}}">
+<link rel="stylesheet" href="{{url_for('.static', filename='css/password.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -43,30 +42,31 @@ Login
     </div>
 
     <div class="container">
-        <form class="form-signin" method="POST" action="/login">
-            <h2 class="form-signin-heading">Please log in</h2>
+        <form class="form-signin" method="POST" action="/signup">
+            <h2 class="form-signin-heading">Please Sign up</h2>
+            
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.username, autocomplete="off") }}
-            <p class="help-block" style="display: {{uname_help_block}};">Invalid username or password</p>
+            <p class="help-block" style="display: {{uname_help_block}};">Username already exist</p>
+
+            {{ wtf.form_field(form.email, autocomplete="off") }}
+            <p class="help-block" style="display: {{email_help_block}};">Email Id already exist</p>
+
             {{ wtf.form_field(form.password, autocomplete="off") }}
-            
+
             <div class="parent-div-password">
                 <div style="display: flex;" class="div-password" id="show-password" onclick="passwordVisibility('password')">
                     <i class="fa fa-eye"></i>
                     <label>Show Password</label>
                 </div>
-                
+
                 <div style="display: none;" class="div-password" id="hide-password" onclick="passwordVisibility('password')">
                     <i class="fa fa-eye-slash"></i>
                     <label>Hide Password</label>
                 </div>
             </div>
-            
-            {{ wtf.form_field(form.remember) }}
 
-            <div style="display: flex; margin: 15px 0; justify-content: center;"><p>New user ?</p><a id="signup" href="{{url_for('signup')}}">Sign up</a></div>
-            
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
         </form>
     </div>
 
@@ -75,13 +75,5 @@ Login
     <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/animations/animateLogin.js') }}"></script>
     <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/panel.js') }}"></script>
     <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/password.js') }}"></script>
-
-    <script>
-        $(document).ready(function(){
-            $(".checkbox label").addClass("checkbox-container");
-            $(".checkbox-container").append('<span class="checkmark"></span>');
-            $("#remember").before('<p>Remember Me</p>');
-        });
-    </script>
 </body>
 {% endblock %}
