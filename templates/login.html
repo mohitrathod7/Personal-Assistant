@@ -7,34 +7,39 @@ Login
 
 {% block styles %}
 {{super()}}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500;600;700;800&display=swap">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="{{url_for('static', filename='css/essentials.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/sidepanel.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/password.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/checkbox.css')}}">
 {% endblock %}
 
 {% block content %}
 <body>
     <nav>
-        <a><i class="fa fa-bars" onclick="openNav()"></i></a>
-        <a href="{{url_for('home')}}">Home</a>
-        <a style="display: {{display_login}};" href="{{url_for('login')}}">Log In</a>
-        <a style="display: {{display_logout}};" href="{{url_for('logout')}}">Logout</a>
-        <a style="display: {{display_signup}};" href="{{url_for('signup')}}">Sign up</a>
+        <a class="left-link"><i class="fa fa-bars" onclick="openNav()"></i></a>
+        <a class="left-link" href="{{url_for('home')}}">Home</a>
+        <a class="right-link" style="display: {{display_login}};" href="{{url_for('login')}}">Log In</a>
+        <a class="right-link" style="display: {{display_logout}};" href="{{url_for('logout')}}">Logout</a>
+        <a class="right-link" style="display: {{display_signup}};" href="{{url_for('signup')}}">Sign up</a>
     </nav>    
 
     <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a style="display: {{display_login}};" href="{{url_for('login')}}">Log In</a>
-        <a style="display: {{display_logout}};" href="{{url_for('logout')}}">Logout</a>
-        <a style="display: {{display_signup}};" href="{{url_for('signup')}}">Sign up</a>
-        <a href="{{url_for('settings')}}">Settings</a>
-        <a href="{{url_for('help')}}">Help</a>
+        <a class="side-links closebtn" href="javascript:void(0)" onclick="closeNav()">&times;</a>
+        <a class="side-links" style="display: {{display_login}};" href="{{url_for('login')}}">Log In</a>
+        <a class="side-links" style="display: {{display_logout}};" href="{{url_for('logout')}}">Logout</a>
+        <a class="side-links" style="display: {{display_signup}};" href="{{url_for('signup')}}">Sign up</a>
+        <a class="side-links" style="display: {{display_settings}};" href="{{url_for('settings', id='general')}}">Settings</a>
+        <a class="side-links" href="{{url_for('help')}}">Help</a>
     </div>
 
     <div class="container">
@@ -46,30 +51,37 @@ integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQV
             {{ wtf.form_field(form.password, autocomplete="off") }}
             
             <div class="parent-div-password">
-                <div style="display: flex;" class="div-password" id="show-password" onclick="passwordVisibility()">
+                <div style="display: flex;" class="div-password" id="show-password" onclick="passwordVisibility('password')">
                     <i class="fa fa-eye"></i>
                     <label>Show Password</label>
                 </div>
                 
-                <div style="display: none;" class="div-password" id="hide-password" onclick="passwordVisibility()">
+                <div style="display: none;" class="div-password" id="hide-password" onclick="passwordVisibility('password')">
                     <i class="fa fa-eye-slash"></i>
                     <label>Hide Password</label>
                 </div>
             </div>
             
             {{ wtf.form_field(form.remember) }}
-            
+
             <div style="display: flex; margin: 15px 0; justify-content: center;"><p>New user ?</p><a id="signup" href="{{url_for('signup')}}">Sign up</a></div>
             
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
     </div>
 
-    <!-- Open SideBar -->
-    <script src="static/js/panel.js"></script>
-    <script src="static/js/password.js"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/animations/gsap.min.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/animations/animate.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/animations/animateLogin.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/panel.js') }}"></script>
+    <script type = "text/javascript" src = "{{ url_for('static', filename = 'js/password.js') }}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".checkbox label").addClass("checkbox-container");
+            $(".checkbox-container").append('<span class="checkmark"></span>');
+            $("#remember").before('<p>Remember Me</p>');
+        });
+    </script>
 </body>
 {% endblock %}
