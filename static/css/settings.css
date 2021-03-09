@@ -1,0 +1,188 @@
+body .container{
+    margin: 0 auto;
+    padding: 0 20px;
+    padding-top: 60px !important;
+    width: -webkit-fill-available;
+
+}
+
+.box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    margin-top: 0;
+    padding-left: 5px;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--green);
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+.box .left, .box .right{
+    padding: 20px;
+}
+
+.left{
+    min-width: 25%;
+}
+
+.left .left-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.left .left-links a{
+    margin: 5px 0;
+    padding: 10px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.left .left-links a i{
+    display: flex;
+}
+
+.left .left-links a i span{
+    font-weight: 600;
+}
+
+.left .left-links .fa:before{
+    width: 25px;
+    color: var(--green);
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+.right{
+    min-width: 70%;
+}
+
+.right .title{
+    margin-bottom: 20px;
+}
+
+.left .left-links a.active{
+    background: aliceblue;
+    text-decoration: none;
+    color: black;
+}
+
+/* --------------------------------- FORM ------------------------------------- */
+form{
+    padding: 0 20px;
+}
+
+.form-group{
+    align-items: center;
+}
+
+a:hover{
+    color: unset;
+    text-decoration: none !important;
+}
+
+.help-block{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color: var(--help);
+}
+
+.form-control{
+    margin: auto;
+    border-radius: 10px;
+}
+
+.form-group{
+    display: flex;
+}
+
+.control-label{
+    min-width: 25%;
+    font-size: 18px;
+}
+
+#gender-group{
+    justify-content: space-between;
+}
+
+#gender-group #gender-label{
+    margin: 0;
+    padding: 0;
+    min-width: 25% !important;
+    cursor: default;
+}
+
+#gender-group #parent-div{
+    padding-right: 100px;
+    display: flex;
+    width: -webkit-fill-available;
+    justify-content: space-between;
+}
+
+#gender-group .control-label{
+    margin: 0 auto;
+    padding: 5px;
+    min-width: fit-content !important;
+    cursor: pointer;
+}
+
+#gender-group input[type=radio]{
+    display: none;
+}
+
+#gender-group input[type=radio] ~ .control-label{
+    font-size: 20px;
+    font-weight: 900;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+#gender-group input[type=radio]:not(checked) ~ .control-label{
+    color: var(--red);
+}
+
+#gender-group input[type=radio]:checked ~ .control-label{
+    color: var(--green);
+}
+
+.save-button{
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    height: 30px;
+    width: 70px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 2px solid black !important;
+    border-radius: 10px;
+    line-height: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.save-button:hover{
+    background: var(--green);
+}
+
+#deleteAccount{
+    color: var(--red);
+    font-size: 26px;
+    font-weight: 900;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+}
+
+label[for="deleteAccount"]{
+    margin-top: 50px;
+}
+
+/* ------------------ */
+#modal-box{
+    display: none;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    margin: auto;
+}
