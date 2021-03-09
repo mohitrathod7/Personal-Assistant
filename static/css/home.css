@@ -9,7 +9,7 @@ body #box{
 body #box h1{
     font-size: 60px;
     text-align: center;
-    color: #38ef7d;
+    color: var(--green);
     -webkit-text-stroke-color: black;
     -webkit-text-stroke-width: 2px;
 }
@@ -38,10 +38,11 @@ body #box form .fa-search, body #box form .fa-microphone{
     margin-left: 20px;
     font-size: 40px;
     color: white;
+    transition: color 0.25s ease-in-out;
 }
 
 body #box form .fa-search:hover, body #box form .fa-microphone:hover{
-    color: #38ef7d;
+    color: var(--green);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
