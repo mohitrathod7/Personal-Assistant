@@ -1,3 +1,11 @@
+:root{
+    --green: #38ef7d;
+    --red: #f05050; 
+    --help: #a94442;
+    --purple: #7f00ff;
+    --pink: #e100ff;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -5,12 +13,18 @@
 }
 
 body{
-    background: linear-gradient(to left, #7f00ff, #e100ff);
+    background: linear-gradient(to left, var(--purple), var(--pink));
+    overflow-x: hidden;
+    color: black !important;
 }
 
 a{
     text-decoration: none;
     color: black;
+}
+
+a:focus{
+    text-decoration: none;
 }
 
 li{
@@ -24,4 +38,16 @@ input, button{
 
 button{
     cursor: pointer;
+}
+
+.space-right{
+    padding-right: 10px;
+}
+
+.space-left{
+    padding-left: 10px;
+}
+
+.shadow-text{
+    text-shadow: 2px 2px 2px black;
 }
